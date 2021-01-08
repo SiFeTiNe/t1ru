@@ -9,4 +9,4 @@ from taggit.models import Tag
 
 # Create your views here.
 class HomeView(TemplateView):
-    template_name = 'base.html'
+    template_name = 'index.html'
