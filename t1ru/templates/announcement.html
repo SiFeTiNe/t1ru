@@ -3,15 +3,19 @@
     <div class="container" style="padding-top: 4.5rem;">
         <nav>
           <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <a class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
-            <a class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
-            <a class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+            <a class="nav-link active" id="nav-all-tab" data-bs-toggle="tab" data-bs-target="#all" href="#nav-all" role="tab" aria-controls="nav-all" aria-selected="true">ทั้งหมด</a>
+            {% for category in categories %}
+              <a class="nav-link" id="nav-{{ category.0 }}-tab" data-bs-toggle="tab" data-bs-target="#{{ category.0 }}" href="#nav-{{ category.0 }}" role="tab" aria-controls="nav-{{ category.0 }}" aria-selected="false">{{ category.1 }}</a>
+            {% endfor %}
           </div>
         </nav>
-        <div class="tab-content" id="nav-tabContent">
-          <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">...</div>
-          <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
-          <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+        <div class="tab-content" id="nav-tabContent" style="padding-top: 1rem;">
+          <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="nav-all-tab">
+              ทั้งหมด?
+          </div>
+          {% for category in categories %}
+              <div class="tab-pane fade" id="{{ category.0 }}" role="tabpanel" aria-labelledby="nav-{{ category }}-tab">{{ category.1 }}</div>
+          {% endfor %}
         </div>
     </div>
 {% endblock %}

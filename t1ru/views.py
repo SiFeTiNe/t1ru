@@ -21,3 +21,6 @@ class AnnouncementView(ListView):
     template_name = 'announcement.html'
     context_object_name = 'announcements'
     paginate_by = 12
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        return {self.context_object_name: object_list, 'categories': Announcement.CATEGORIES}

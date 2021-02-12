@@ -11,8 +11,11 @@ class HomeCarousel(models.Model):
 
 class Announcement(models.Model):
     CATEGORIES = (
-        ()
+        ('general', 'ทั่วไป'),
+        ('department', 'กลุ่มสาระ'),
+        ('academic', 'วิชาการ'),
     )
+    category = models.CharField(max_length=300, choices=CATEGORIES, default=CATEGORIES[0])
     topic = models.CharField(blank=False, max_length=100)
     description = models.TextField(blank=False)
     pub_date = models.DateTimeField(auto_now_add=True, editable=False)
