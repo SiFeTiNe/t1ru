@@ -1,7 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="d-flex justify-content-evenly" style="padding-top: 4.5rem;">
-        <div class="align-self-center"><img src="http://parknumsamutprakarn.go.th/public/list_upload/backend/list_30/pics_topic_30.jpg?858" class="img-fluid" alt="T1RU"></div>
-        <div class="align-self-center"><h1 style="font-size: 4vw; text-align: center;">โรงเรียนเทศบาล 1</h1><br><h2 style="font-size: 2.5vw; text-align: center;">(ในระบบสาธิตมหาวิทยาลัยรามคำแหง)</h2></div>
+    <style>
+        .t-img {
+            position: relative;
+            margin: 0 auto; /* Center it */
+        }
+
+        .t-img .content {
+            position: absolute; /* Position the background text */
+            bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+            background: rgb(0, 0, 0); /* Fallback color */
+            background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+            color: #f1f1f1; /* Grey text */
+            width: 100%; /* Full width */
+            padding: 3rem; /* Some padding */
+        }
+    </style>
+    
+    <div class="t-img w-100">
+        <img class="img-fluid w-100" src="http://parknumsamutprakarn.go.th/public/list_upload/backend/list_30/pics_topic_30.jpg?858" alt="T1RU">
+        <div class="content">
+            <h1 class="text-center">โรงเรียนเทศบาล 1</h1>
+            <p style="font-size: 24px;" class="text-center">(ในระบบสาธิตมหาวิทยาลัยรามคำแหง)<p>
+        </div>
     </div>
 {% endblock %}
