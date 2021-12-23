@@ -1,29 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-        <ol class="carousel-indicators">
-            {% for carousel in carousels %}
-                <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %}></li>
-            {% endfor %}
-        </ol>
-        <div class="carousel-inner">
-            {% for carousel in carousels %}
-                <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                    <img src="{{ carousel.image.url }}" class="d-block w-100" alt="image{{ forloop.counter0 }}">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>{{ carousel.label }}</h5>
-                        <p>{{ carousel.description }}</p>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </a>
+    <div class="d-flex justify-content-evenly" style="padding-top: 4.5rem;">
+        <div class="align-self-center"><img src="http://parknumsamutprakarn.go.th/public/list_upload/backend/list_30/pics_topic_30.jpg?858" class="img-fluid" alt="T1RU"></div>
+        <div class="align-self-center"><h1 style="font-size: 4vw; text-align: center;">โรงเรียนเทศบาล 1</h1><br><h2 style="font-size: 2.5vw; text-align: center;">(ในระบบสาธิตมหาวิทยาลัยรามคำแหง)</h2></div>
     </div>
 {% endblock %}
