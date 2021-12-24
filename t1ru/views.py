@@ -6,14 +6,12 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView, TemplateView
 from taggit.models import Tag
-from t1ru.models import HomeCarousel, Announcement
+from t1ru.models import Announcement
 
 
 # Create your views here.
-class HomeView(ListView):
-    model = HomeCarousel
+class HomeView(TemplateView):
     template_name = 'index.html'
-    context_object_name = 'carousels'
 
 
 class AnnouncementView(ListView):
@@ -22,5 +20,12 @@ class AnnouncementView(ListView):
     context_object_name = 'announcements'
     paginate_by = 12
 
-    def get_context_data(self, *, object_list=None, **kwargs):
-        return {self.context_object_name: object_list, 'categories': Announcement.CATEGORIES}
+    def get_context_data(self, **kwargs):
+        object_list = self.model.objects.all()
+        categories = Announcement.CATEGORIES
+        announcement_list = {}
+        for category in categories:
+            announcement_list[category[0]] = []
+        for object in object_list:
+            announcement_list[object.category].append(object)
+        return {self.context_object_name: object_list, 'announcement_list': announcement_list, 'categories': categories}

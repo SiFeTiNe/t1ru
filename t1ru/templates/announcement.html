@@ -11,10 +11,40 @@
         </nav>
         <div class="tab-content" id="nav-tabContent" style="padding-top: 1rem;">
           <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="nav-all-tab">
-              ทั้งหมด?
+            {% for announcement in announcements %}
+              <div class="card mb-3">
+                {% if announcement.image %}
+                  <img src="{{ announcement.image.url }}" class="card-img-top" alt="announcement{{ announcement.pk }}">
+                {% endif %}
+                <div class="card-body">
+                  <h5 class="card-title">{{ announcement.topic }}</h5>
+                  <p class="card-text">{{ announcement.description|linebreaks }}</p>
+                  <p class="card-text"><small class="text-muted">ลงประกาศเมื่อ: {{ announcement.pub_date }}</small></p>
+                </div>
+              </div>
+            {% endfor %}
           </div>
           {% for category in categories %}
-              <div class="tab-pane fade" id="{{ category.0 }}" role="tabpanel" aria-labelledby="nav-{{ category }}-tab">{{ category.1 }}</div>
+            <div class="tab-pane fade" id="{{ category.0 }}" role="tabpanel" aria-labelledby="nav-{{ category }}-tab">
+              {% for key, value in announcement_list.items %}
+                {% if key == category.0 %}
+                  {% for announcement in value %}
+                      <div class="card mb-3">
+                        {% if announcement.image %}
+                          <img src="{{ announcement.image.url }}" class="card-img-top" alt="announcement{{ announcement.pk }}">
+                        {% endif %}
+                        <div class="card-body">
+                          <h5 class="card-title">{{ announcement.topic }}</h5>
+                          <p class="card-text">{{ announcement.description|linebreaks }}</p>
+                          <p class="card-text"><small class="text-muted">ลงประกาศเมื่อ: {{ announcement.pub_date }}</small></p>
+                        </div>
+                      </div>
+                  {% empty %}
+                    <p>ไม่พบประกาศในหมวดหมู่{{ category.1 }}</p>
+                  {% endfor %}
+                {% endif %}
+              {% endfor %}
+            </div>
           {% endfor %}
         </div>
     </div>

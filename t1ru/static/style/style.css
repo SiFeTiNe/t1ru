@@ -1,5 +1,5 @@
 body {
-    font-family: 'Noto Serif Thai';
+  font-family: "Noto Serif Thai";
 }
 
 .t-img {
@@ -16,8 +16,8 @@ body {
   padding: 3rem; /* Some padding */
 }
 .t-img img {
-    height: 100vh;
-    width: 100vh;
+  height: 100vh;
+  width: 100vh;
 }
 
 .nav-item {
