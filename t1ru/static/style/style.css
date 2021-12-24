@@ -1,0 +1,36 @@
+body {
+    font-family: 'Noto Serif Thai';
+}
+
+.t-img {
+  position: relative;
+  margin: 0 auto; /* Center it */
+}
+.t-img .content {
+  position: absolute; /* Position the background text */
+  bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  color: #f1f1f1; /* Grey text */
+  width: 100%; /* Full width */
+  padding: 3rem; /* Some padding */
+}
+.t-img img {
+    height: 100vh;
+    width: 100vh;
+}
+
+.nav-item {
+  transition: 0.618s;
+}
+.nav-item:hover {
+  background-color: rgba(0, 0, 0, 0.1618);
+}
+
+.search-input {
+  width: 8rem;
+  transition: 0.5s;
+}
+.search-input:focus {
+  width: 21rem;
+}
