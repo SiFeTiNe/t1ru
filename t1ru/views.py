@@ -18,10 +18,11 @@ class AnnouncementView(ListView):
     model = Announcement
     template_name = 'announcement.html'
     context_object_name = 'announcements'
-    paginate_by = 12
+    ordering = ['-pub_date']
+    paginate_by = 3
 
     def get_context_data(self, **kwargs):
-        object_list = self.model.objects.all()
+        object_list = self.model.objects.all().order_by('-pub_date')
         categories = Announcement.CATEGORIES
         announcement_list = {}
         for category in categories:
