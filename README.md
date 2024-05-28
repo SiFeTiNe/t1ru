@@ -32,7 +32,7 @@ school management system
   
         $ pip install -r requirements.txt
         
-7. Use mysite/sample.env as a template, then create/edit your own
+7. Use t1ru/sample.env as a template, then create/edit your own
 .env file and set their values.
 
        DEBUG=True
